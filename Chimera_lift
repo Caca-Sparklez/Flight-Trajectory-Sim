@@ -1,0 +1,28 @@
+# This is my go at the lift math for the first paper 
+#but idk what im doing ngl
+#
+# - Johnny Kellogg
+
+#finite span lift coefficient - EQ 13
+
+import math
+
+# Given Constants
+elliptic_wing_loading = 0.95
+
+# Somehow need to find or need to be given
+ar = input("Enter the Aspect Ratio (ar): ")
+cla_0 = input("Infinite span lift coefficeint (cla_0): ")
+
+#finite span lift coefficient
+cla_w = 0
+
+cla_w = (1 + (cla_0)/(math.pi * ar * elliptic_wing_loading))^-1 * cla_0
+
+cla = cla_w
+
+print("cla after equation 13 is: ")
+print(cla)
+
+
+
