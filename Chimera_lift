@@ -12,12 +12,14 @@ elliptic_wing_loading = 0.95
 
 # Somehow need to find or need to be given
 ar = input("Enter the Aspect Ratio (ar): ")
+ar = float(ar)
 cla_0 = input("Infinite span lift coefficeint (cla_0): ")
+cla_0 = float(cla_0)
 
 #finite span lift coefficient
-cla_w = 0
+cla_w = 0.0
 
-cla_w = (1 + (cla_0)/(math.pi * ar * elliptic_wing_loading))^-1 * cla_0
+cla_w = ((1 + (cla_0)/(float(math.pi) * ar * elliptic_wing_loading))**-1) * cla_0
 
 cla = cla_w
 
