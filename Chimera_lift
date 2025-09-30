@@ -3,7 +3,7 @@
 #
 # - Johnny Kellogg
 
-#finite span lift coefficient - EQ 13
+# finite span lift coefficient - EQ 13
 
 import math
 
@@ -12,19 +12,40 @@ elliptic_wing_loading = 0.95
 
 # Somehow need to find or need to be given
 ar = input("Enter the Aspect Ratio (ar): ")
-ar = float(ar)
-cla_0 = input("Infinite span lift coefficeint (cla_0): ")
-cla_0 = float(cla_0)
+cla_0 = 1 * 0.11 # 1 degree fin angle times 0.11 per degree lift slope for flat plate airfoil
+
+try:
+    ar = float(ar)
+    cla_0 = float(cla_0)
+
+except ValueError:
+    print("non-numeric value entered")
+    quit()
+
 
 #finite span lift coefficient
 cla_w = 0.0
 
 cla_w = ((1 + (cla_0)/(float(math.pi) * ar * elliptic_wing_loading))**-1) * cla_0
 
-cla = cla_w
-
 print("cla after equation 13 is: ")
+print(cla_w)
+
+
+# EQ 14 - lift curve slope for finite wing
+# wing area aw = chord * span
+
+wing_chord = input("Enter the wing chord (m): ")                    # chord of the wing
+wing_span = input("Enter the wing span (m): ")                      # span of the wing             
+aw = float(wing_chord) * float(wing_span)                           # wing area calculation
+
+ac = input("Enter the cutout area of the wing (m^2): ")             # cutout area typically due to sensors
+ac = float(ac)
+
+s_ref = input("Enter the reference area (m^2): ")                  # reference area (wing area without cutouts i think))
+s_ref = float(s_ref)
+
+cla = (aw - ac) * (cla_w) / s_ref
+
+print("Wing lift scaled to reference area is (eq 14): ")
 print(cla)
-
-
-
