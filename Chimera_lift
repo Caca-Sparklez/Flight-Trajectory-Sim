@@ -47,5 +47,5 @@ s_ref = float(s_ref)
 
 cla = (aw - ac) * (cla_w) / s_ref
 
-print("Wing lift scaled to reference area is (eq 14): ")
+print("Wing lift scaled to reference area (eq 14): ")
 print(cla)
