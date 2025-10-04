@@ -4,11 +4,13 @@
 # - Johnny Kellogg
 
 # finite span lift coefficient - EQ 13
-
+import MATLAB
+import pandas as pd
 import math
 import numpy
 import sympy
 from sympy import symbols, diff
+
 
 #VARIABLE NAMES 
 """
@@ -16,11 +18,34 @@ elliptic_wing_loading - constant
 ar - user input
 cla_0 - hardcoded 
 cla_w - modified constant
-wing_chord # chord of the wing
-wing_span = input("Enter the wing span (m): ") 
+wing_chord - user input
+wing_span - user input
+aw - calculated
+ac - user input/calculated
+s_ref - user input/calculated
+cla - calculated
+partial_a_partial_delta - user input
+cld_fs calculated
+mach_Num - user input
+gamma - constant
+beta - calculated
+k1 - calculated
+k2 - calculated
+k3 - calculated
+kf - calculated
+kfi - calculated
+
+
+cm_c4delta - calculated
+c - 
+D - 
+S_ref - 
 
 """
 
+# Excel File
+file_path = 'Research Paper.xlsx' 
+df = pd.read_excel(file_path)
 
 
 # Given Constants
@@ -74,27 +99,26 @@ cld_fs = cla * partial_a_partial_delta
 
 # equation 16
 machNum = input("Enter the Mach number: ")
-gamma_L = input("Enter the sweep angle (degrees): ")
 gamma = 1.4 # ratio of specific heats for air
-beta = math.sqrt(1 - (machNum**2))
+beta = sqrt(1 - (M**2))
 k1 = 2/beta
 k2 = ((gamma + 1)* machNum**4 - 4*beta**2) / (4*beta**2)
-k3 = ((gamma + 1)*machNum**8 + (2 * gamma**2 - 7*gamma - 5) * machNum**6 + 10 * (gamma + 1) * machNum**4 - 12*machNum**2 + 8) / (6 * beta**7 )
+k3 = ((gamma + 1)*machNum**8 + (2 * gamma**2 - 7*gamma - 5) * machNum**6 + 10 * (gamma + 1) * machNum***4 - 12)
 
-kfi = k1*(1 + k2*(ar * math.sqrt(1- math.cot(gamma_L)) - 6) + k3 * math.sin(math.atan(math.tan(0))))
-kf = 1
 
-#equation 17
-cld = (kf - kfi) * cld_fs
+kf = 
 
 #equation 18
 # only runs when there is a moment about the quater chord: delta != 0 
 
+# (outer - inner flap edge location) 
+# x (wing cord legnth ration) 
+# x (ratio of effective wing area) 
+# x (change in airfoil pitching moment coefficient about the quarter-chord per unit flap deflection)
+#   - get this slope from airfoil/control surface data (hoerner Riegels???)
 
-
-if cm_c4delta = (k_f - K_fi) * (c/D) * (aw - ac)/(S_ref) 
-
-
-# equation 19 - not needed since there is no "lift" from fins
-
-
+if delta != 0:
+    c =
+    D = 
+    S_ref =
+    cm_c4delta = (kf - Kfi) * (c/D) * (aw - ac)/(S_ref) 
