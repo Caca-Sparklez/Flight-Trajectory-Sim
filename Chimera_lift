@@ -6,7 +6,8 @@
 # finite span lift coefficient - EQ 13
 
 import math
-
+import numpy
+import sympy
 # Given Constants
 elliptic_wing_loading = 0.95
 
@@ -49,3 +50,4 @@ cla = (aw - ac) * (cla_w) / s_ref
 
 print("Wing lift scaled to reference area (eq 14): ")
 print(cla)
+
