@@ -1,5 +1,5 @@
 # Ignore Google service account key
 service_account.json
 
-# Ignore secrets folder (if you make one)
-secrets/
+#Ignore file containing service key
+.env
